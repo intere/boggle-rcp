@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.intere.rcp.boggle.core.interfaces.ComputerPlayer">
+      <computerPlayer
+            class="com.intere.rcp.boggle.computer.players.SimpleWalkEasyComputerPlayer"
+            difficulty="Easy"
+            name="Easy"
+            strategy="Simple Walk">
+      </computerPlayer>
+      <computerPlayer
+            class="com.intere.rcp.boggle.computer.players.SimpleWalkMediumComputerPlayer"
+            difficulty="Medium"
+            name="Medium"
+            strategy="Simple Walk">
+      </computerPlayer>
+      <computerPlayer
+            class="com.intere.rcp.boggle.computer.players.SimpleWalkDifficultComputerPlayer"
+            difficulty="Difficult"
+            name="Difficult"
+            strategy="Simple Walk">
+      </computerPlayer>
+   </extension>
+
+</plugin>

@@ -1,0 +1,5 @@
+Name Ideas:
+Tottle - splash screen contains the photo of the turtle that I took in St. Thomas.
+
+Alternative Scoring Methods:
+Take the length of the word into account in addition to weighting the characters (aka length multiplier or "levels").

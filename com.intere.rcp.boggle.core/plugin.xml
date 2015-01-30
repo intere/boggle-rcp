@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.intere.rcp.boggle.core.interfaces.BoggleServer" name="Boggle Server" schema="schema/com.intere.rcp.boggle.core.interfaces.BoggleServer.exsd"/>
+   <extension-point id="com.intere.rcp.boggle.core.interfaces.BoggleClient" name="Boggle Client" schema="schema/com.intere.rcp.boggle.core.interfaces.BoggleClient.exsd"/>
+   <extension-point id="com.intere.rcp.boggle.core.interfaces.BoggleDice" name="Boggle Dice" schema="schema/com.intere.rcp.boggle.core.interfaces.BoggleDice.exsd"/>
+   <extension-point id="com.intere.rcp.boggle.core.interfaces.ComputerPlayer" name="Boggle Computer Player" schema="schema/com.intere.rcp.boggle.core.interfaces.ComputerPlayer.exsd"/>
+   <extension
+         point="com.intere.rcp.boggle.core.interfaces.BoggleDice">
+      <BoggleDice
+            class="com.intere.rcp.boggle.core.util.FileBasedDiceLoader"
+            description="This is the old 4x4 Dice configuration"
+            filename="/resources/old4x4.txt"
+            name="4x4 - Old"
+            size="4">
+      </BoggleDice>
+      <BoggleDice
+            class="com.intere.rcp.boggle.core.util.FileBasedDiceLoader"
+            description="This is the new 4x4 Dice configuration"
+            filename="/resources/new4x4.txt"
+            name="4x4 - New"
+            size="4">
+      </BoggleDice>
+      <BoggleDice
+            class="com.intere.rcp.boggle.core.util.FileBasedDiceLoader"
+            description="This is the 5x5 Boggle Board"
+            filename="/resources/5x5.txt"
+            name="5x5"
+            size="5">
+      </BoggleDice>
+      <BoggleDice
+            class="com.intere.rcp.boggle.core.util.FileBasedDiceLoader"
+            description="This is a 6x6 board."
+            filename="/resources/6x6.txt"
+            name="6x6"
+            size="6">
+      </BoggleDice>
+   </extension>
+
+</plugin>

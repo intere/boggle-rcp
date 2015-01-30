@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.PlayerView"
+            icon="icons/presence_online.png"
+            id="com.intere.rcp.boggle.ui.views.PlayerView"
+            name="Player List"
+            restorable="true">
+      </view>
+      <category
+            id="com.intere.rcp.boggle.ui.boggle.category"
+            name="Boggle">
+      </category>
+      <view
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.LoginView"
+            icon="icons/password.png"
+            id="com.intere.rcp.boggle.ui.views.LoginView"
+            name="Login View"
+            restorable="true">
+      </view>
+      <view
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.GameView"
+            icon="icons/blockdevice.png"
+            id="com.intere.rcp.boggle.ui.views.GameView"
+            name="Game List"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.BoggleBoardView"
+            icon="icons/math_matrix.png"
+            id="com.intere.rcp.boggle.ui.views.BoggleBoardView"
+            name="Boggle Board"
+            restorable="true">
+      </view>
+      <view
+            class="com.intere.rcp.boggle.ui.views.TimerView"
+            icon="icons/history.png"
+            id="com.intere.rcp.boggle.ui.views.TimerView"
+            name="Game Time"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.ScoreView"
+            id="com.intere.rcp.boggle.ui.views.ScoreView"
+            name="Score View"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.WordListView"
+            id="com.intere.rcp.boggle.ui.views.WordListView"
+            name="Word List"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.views.StatView"
+            id="com.intere.rcp.boggle.ui.views.StatView"
+            name="Game Stats"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.intere.rcp.boggle.ui.perspectives.DefaultPerspective"
+            icon="icons/edit.png"
+            id="com.intere.rcp.boggle.ui.perspectives.DefaultPerspective"
+            name="Default Perspective">
+      </perspective>
+      <perspective
+            class="com.intere.rcp.boggle.ui.perspectives.BoggleGamePerspective"
+            fixed="true"
+            icon="icons/math_matrix.png"
+            id="com.intere.rcp.boggle.ui.perspectives.BoggleGamePerspective"
+            name="Boggle Perspective">
+      </perspective>
+      <perspective
+            class="com.intere.rcp.boggle.ui.perspectives.LoginPerspective"
+            fixed="true"
+            icon="icons/password.png"
+            id="com.intere.rcp.boggle.ui.perspectives.LoginPerspective"
+            name="Login Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.handlers.DefaultPerspectiveHandler"
+            id="com.intere.rcp.boggle.ui.handlers.DefaultPerspectiveHandler"
+            name="Load Default Perspective">
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.handlers.ActiveGamePerspectiveHandler"
+            id="com.intere.rcp.boggle.ui.handlers.ActiveGamePerspectiveHandler"
+            name="Load Active Game Perspective">
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.handlers.LoginPerspectiveHandler"
+            id="com.intere.rcp.boggle.ui.handlers.LoginPerspectiveHandler"
+            name="Load Login Perspective">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Game">
+            <command
+                  commandId="com.intere.rcp.boggle.ui.handlers.DefaultPerspectiveHandler"
+                  label="Return to Game List"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.intere.rcp.boggle.ui.toolbar">
+            <command
+                  commandId="com.intere.rcp.boggle.ui.handlers.LoginPerspectiveHandler"
+                  icon="icons/password.png"
+                  label="Load Login Perspective"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.intere.rcp.boggle.ui.handlers.DefaultPerspectiveHandler"
+                  icon="icons/edit.png"
+                  label="Load Default Perspective"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.intere.rcp.boggle.ui.handlers.ActiveGamePerspectiveHandler"
+                  icon="icons/text_sub.png"
+                  label="Load Active Game Perspective"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Computer
+Bundle-SymbolicName: com.intere.rcp.boggle.computer;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.intere.rcp.boggle.computer.BoggleComputerPlugin
+Bundle-Vendor: INTERE
+Require-Bundle: org.eclipse.core.runtime,
+ com.intere.rcp.boggle.core;bundle-version="[1.0.0,1.1.0)"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Import-Package: com.intere.rcp.boggle.ui.controllers
+Export-Package: com.intere.rcp.boggle.computer.players,
+ com.intere.rcp.boggle.computer.producers

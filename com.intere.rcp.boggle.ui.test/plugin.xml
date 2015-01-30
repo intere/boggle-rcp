@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.intere.rcp.boggle.ui.test.BoggleTestApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Perspective"
+            class="com.intere.rcp.boggle.ui.test.Perspective"
+            id="com.intere.rcp.boggle.ui.test.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="com.intere.rcp.boggle.ui.boggle.category"
+            class="com.intere.rcp.boggle.ui.test.View"
+            icon="icons/player_time.png"
+            id="com.intere.rcp.boggle.ui.test.view"
+            name="Boggle Board"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+            name="Show Boggle Board">
+         <commandParameter
+               id="com.intere.rcp.boggle.ui.test.board"
+               name="Board Type"
+               optional="false">
+         </commandParameter>
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.ErrorLogHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.ErrorLogHandler.Command"
+            name="Error Log">
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.AddPlayerHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.AddPlayerHandlerCommand"
+            name="Add Player">
+         <commandParameter
+               id="com.intere.rcp.boggle.ui.test.handlers.AddPlayerHandlerCommand.count"
+               name="count"
+               optional="true">
+         </commandParameter>
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.ShowLoginHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.ShowLoginHandlerCommand"
+            name="Show Login View">
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.GameListViewHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.GameListViewHandlerCommand"
+            name="Show Games View">
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.AddGameHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.AddGameHandlerCommand"
+            name="Add Game">
+         <commandParameter
+               id="com.intere.rcp.boggle.ui.test.handlers.AddGameHandlerCommand.count"
+               name="count"
+               optional="true">
+         </commandParameter>
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.NewGameHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.NewGameHandlerCommand"
+            name="New Game">
+      </command>
+      <command
+            defaultHandler="com.intere.rcp.boggle.ui.test.handlers.LoadComputerPlayerHandler"
+            id="com.intere.rcp.boggle.ui.test.handlers.LoadComputerPlayerHandlerCommand"
+            name="Load Computer Players">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Mock">
+            <command
+                  commandId="com.intere.rcp.boggle.ui.test.handlers.NewGameHandlerCommand"
+                  label="New Game"
+                  style="push">
+            </command>
+            <menu
+                  icon="icons/presence_online.png"
+                  label="Players">
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.AddPlayerHandlerCommand"
+                     label="Add Player"
+                     style="push">
+               </command>
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.AddPlayerHandlerCommand"
+                     label="Add 10 Players"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.handlers.AddPlayerHandlerCommand.count"
+                        value="10">
+                  </parameter>
+               </command>
+            </menu>
+            <menu
+                  icon="icons/blockdevice.png"
+                  label="Games">
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.AddGameHandlerCommand"
+                     label="Add Game"
+                     style="push">
+               </command>
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.AddGameHandlerCommand"
+                     label="Add 10 Games"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.handlers.AddGameHandlerCommand.count"
+                        value="10">
+                  </parameter>
+               </command>
+            </menu>
+            <separator
+                  name="com.intere.rcp.boggle.ui.test.separator1"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.intere.rcp.boggle.ui.test.handlers.LoadComputerPlayerHandlerCommand"
+                  label="Load Computer Players"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Views">
+            <command
+                  commandId="com.intere.rcp.boggle.ui.test.handlers.ErrorLogHandler.Command"
+                  label="Show Error Log"
+                  style="push">
+            </command>
+            <separator
+                  name="com.intere.rcp.boggle.ui.test.separator2"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.perspectives.showPerspective"
+                  style="push">
+            </command>
+            <separator
+                  name="com.intere.rcp.boggle.ui.test.separator1"
+                  visible="true">
+            </separator>
+            <menu
+                  icon="icons/player_time.png"
+                  label="Boards">
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+                     label="Old 4x4 Board"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.board"
+                        value="OLD4">
+                  </parameter>
+               </command>
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+                     label="New 4x4 Board"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.board"
+                        value="NEW4">
+                  </parameter>
+               </command>
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+                     label="5x5 Board"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.board"
+                        value="FIVE">
+                  </parameter>
+               </command>
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+                     label="6x6 Board"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.board"
+                        value="SIX">
+                  </parameter>
+               </command>
+               <command
+                     commandId="com.intere.rcp.boggle.ui.test.handlers.ShowBoardHandler"
+                     label="7x7 Board"
+                     style="push">
+                  <parameter
+                        name="com.intere.rcp.boggle.ui.test.board"
+                        value="SEVEN">
+                  </parameter>
+               </command>
+            </menu>
+            <command
+                  commandId="com.intere.rcp.boggle.ui.test.handlers.ShowLoginHandlerCommand"
+                  icon="icons/password.png"
+                  label="Show Login View"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.intere.rcp.boggle.ui.test.handlers.GameListViewHandlerCommand"
+                  icon="icons/blockdevice.png"
+                  label="Show Games View"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="com.intere.rcp.boggle.core.interfaces.BoggleClient">
+      <BoggleClient
+            class="com.intere.rcp.boggle.ui.controllers.GuiBoggleClient"
+            description="This is a test implementation of the Client Interface for prototyping purposes."
+            name="Test Client">
+      </BoggleClient>
+   </extension>
+   <extension
+         point="com.intere.rcp.boggle.core.interfaces.BoggleServer">
+      <BoggleServer
+            class="com.intere.rcp.boggle.ui.test.mock.MockServer"
+            description="Mock UI Server"
+            name="com.intere.rcp.boggle.ui.test.mock.MockServer">
+      </BoggleServer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.intere.rcp.boggle.ui.test.Activator">
+      </startup>
+   </extension>
+
+</plugin>

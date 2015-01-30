@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: com.intere.rcp.boggle.ui.test; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.intere.rcp.boggle.ui.test.Activator
+Bundle-Vendor: INTERE
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.jface;bundle-version="3.4.1",
+ org.eclipse.ui;bundle-version="3.4.1",
+ com.intere.rcp.boggle.core;bundle-version="1.0.0",
+ com.intere.rcp.boggle.server;bundle-version="1.0.0",
+ com.intere.rcp.boggle.ui;bundle-version="1.0.0",
+ org.junit;bundle-version="4.11.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
